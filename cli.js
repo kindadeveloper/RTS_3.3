@@ -1,7 +1,7 @@
 "use strict";
 
 const readline = require("readline");
-const genetic = require('./lab3_3');
+const genetic = require('./code');
 //sconsole.log({genetic})
 const rl = readline.createInterface({
   input: process.stdin,
@@ -10,6 +10,11 @@ const rl = readline.createInterface({
 });
 
 rl.prompt();
+
+function exitTime(){
+  console.log("Time > 1sec");
+  process.exit(0);
+}
 
 const commands = {
   help() {
@@ -33,6 +38,7 @@ const commands = {
               console.log(`d = ${d}`);
               rl.question("Enter d: ", (y) => {
                 console.log(`y = ${y}`);
+                setTimeout(exitTime, 1000);
                 genetic({a, b, c, d}, y)
                 rl.prompt();
               });
